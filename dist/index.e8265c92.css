@@ -7298,7 +7298,7 @@ h2, .h2 {
 
 @media (min-width: 576px) {
   .section-card-columns {
-    max-width: 400px;
+    max-width: 350px;
   }
 }
 
