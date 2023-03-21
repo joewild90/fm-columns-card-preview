@@ -1,0 +1,204 @@
+// Custom.scss
+// Option B: Include parts of Bootstrap
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../../node_modules/bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "../../node_modules/bootstrap/scss/variables";
+
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/root";
+
+// 6. Optionally include any other parts as needed
+@import "../../node_modules/bootstrap/scss/utilities";
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/containers";
+@import "../../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/helpers";
+@import "../../node_modules/bootstrap/scss/type";
+@import "../../node_modules/bootstrap/scss/buttons";
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "../../node_modules/bootstrap/scss/utilities/api";
+
+// 8. Add additional custom code here
+
+:root {
+    --orange-bright: hsl(31, 77%, 52%); 
+    --cyan-dark: hsl(184, 100%, 22%);
+    --cyan-dark-2: hsl(179, 100%, 13%);
+
+    --white-transparent: hsla(0, 0%, 100%, 0.75);
+    --gray-light: hsl(0, 0%, 95%);
+
+    --fs-base: 15px;
+    --fs-text-xs: .75rem;
+    --fs-text-sm: .875rem;
+    --fs-h1: 2rem;
+    --fs-body: 1.125rem;
+    --fs-link: 1.125rem;
+    --fs-button: 1.125rem;
+
+    --p-card: 2rem;
+    --p-card-sm: 2.5rem;
+    --p-card-md: 3rem;
+
+    --px-button: 1.5rem;
+    --py-button: .5rem;
+    --px-button-sm: 2rem;
+    --py-button-sm: .75rem;
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-smooth: antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+}
+body {
+    font-family: 'Lexend Deca';
+    font-size: var(--fs-base);
+    font-weight: 500;
+
+}
+p {
+    margin: 0;
+    color: var(--white-transparent);
+}
+
+h2 {
+    font-family: 'Big Shoulders Display';
+    font-size: var(--fs-h1);
+    font-weight: 700;
+    color: var(--blue-dark);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+
+
+.btn {
+    border-radius: 6.25rem;
+    padding: var(--py-button) var(--px-button);
+    @include media-breakpoint-up(md) {
+        padding: var(--py-button-sm) var(--px-button-sm);
+    }
+}
+
+.btn-secondary {
+    background-color: #fff;
+    border-color: #fff;
+    color: var(--cyan-dark);
+    &:hover, &:focus-visible, &:active {
+        color: #fff !important;
+        border-color: #fff !important;
+        background-color: transparent !important;
+    }
+}
+.page {
+    width: 100%;
+    height: 100vh;
+}
+
+.page__content {
+    height: 100%;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+.section-columns {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @include media-breakpoint-up(md) {
+         grid-template-columns:  1fr 1fr 1fr;
+    }
+}
+.card-preview {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: var(--p-card);
+    min-height: 370px;
+    
+    &--bg-orange {
+        background-color: var(--orange-bright);
+    }
+    &--bg-cyan {
+        background-color: var(--cyan-dark);
+    }
+    &--bg-cyan-dark {
+        background-color: var(--cyan-dark-2);
+    }
+    
+    &:first-child {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        
+    }
+    &:last-child {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    
+    @include media-breakpoint-up(md) {
+        padding: var(--p-card-sm);
+        &:first-child {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 10px;
+        }
+        &:last-child {
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 0;
+        }
+    }
+    @include media-breakpoint-up(lg) {
+        padding: var(--p-card-md) var(--p-card-sm);
+        min-height: 450px;
+    }
+}
+
+.card-preview--bg-orange .card-preview__button {
+    color: var(--orange-bright);
+}
+.card-preview--bg-cyan .card-preview__button {
+    color: var(--cyan-dark);
+}
+.card-preview--bg-cyan-dark .card-preview__button {
+    color: var(--cyan-dark-2);
+}
+
+.card-preview__icon {
+    margin-bottom: 1.5rem;
+    @include media-breakpoint-up(lg) {
+        margin-bottom: 2rem;
+    }
+}
+
+.card-preview__title {
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.card-preview__action {
+    margin-top: auto;
+}
+
+.card-preview__button {
+    margin-top: 1.5rem;
+}
+
+
